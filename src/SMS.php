@@ -29,7 +29,7 @@ class SMS extends Service
 		  CURLOPT_CUSTOMREQUEST => 'POST',
 		  CURLOPT_POSTFIELDS =>'{
 			"sender": "'.$options['sender'].'",
-			 "recipient": "'.empty($options['to'].'",
+			 "recipient": "'.$options['to'].'",
 			 "message": "'.$options['message'].'"
 			}',
 		  CURLOPT_HTTPHEADER => array(

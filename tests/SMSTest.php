@@ -43,8 +43,6 @@ class SMSTest extends \PHPUnit\Framework\TestCase
 			'message' 	=> 'Testing SMS...'
 		]);
 		
-		var_dump($response);
-
-		$this->assertEquals('"Message sent."', $response['data']);
+		$this->assertEquals('"Message Sent."', $response['data']);
 	}
 }
