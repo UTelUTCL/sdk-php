@@ -1,0 +1,32 @@
+{
+	"name": "utcl/utel",
+	"description": "Official UTel's PHP SDK",
+	"keywords": ["sms","email", "text message", "api"],
+	"homepage": "http://github.com/UTelUTCL/sdk-php",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Africas's Talking",
+			"email": "support@utcl.co.ug",
+			"homepage": "https://www.utcl.co.ug"
+		}
+	],
+	"require": {
+		"php": ">=7.1",
+		"guzzlehttp/guzzle": "^6.0 || ^7.0"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^9.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"UTel\\SDK\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"UTel\\SDK\\Tests\\": "tests"
+		}
+	}
+}
