@@ -24,8 +24,7 @@ class UTel
 
 	public function email()
 	{
-		$content = new Content($this->contentClient, $this->username, $this->apiKey);
-		return $content;
+		return new Email($this->baseDomain);
 	}
 	
 }

@@ -19,23 +19,23 @@ class SMS extends Service
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		  CURLOPT_URL => $this->baseDomain,
-		  CURLOPT_RETURNTRANSFER => true,
-		  CURLOPT_ENCODING => '',
-		  CURLOPT_MAXREDIRS => 10,
-		  CURLOPT_TIMEOUT => 0,
-		  CURLOPT_FOLLOWLOCATION => true,
-		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-		  CURLOPT_CUSTOMREQUEST => 'POST',
-		  CURLOPT_POSTFIELDS =>'{
-			"sender": "'.$options['sender'].'",
-			 "recipient": "'.$options['to'].'",
-			 "message": "'.$options['message'].'"
+			CURLOPT_URL => $this->baseDomain,
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST',
+			CURLOPT_POSTFIELDS =>'{
+				"sender": "'.$options['sender'].'",
+				"recipient": "'.$options['to'].'",
+				"message": "'.$options['message'].'"
 			}',
-		  CURLOPT_HTTPHEADER => array(
-			'Content-Type: application/json',
-			'Authorization: Basic '.$this->token
-		  ),
+			CURLOPT_HTTPHEADER => array(
+				'Content-Type: application/json',
+				'Authorization: Basic '.$this->token
+			),
 		));
 
 		$response = curl_exec($curl);
