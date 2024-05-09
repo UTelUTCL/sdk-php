@@ -10,13 +10,15 @@ class EmailTest extends \PHPUnit\Framework\TestCase
 
 	public function setUp(): void
 	{
-		$this->client = new UTel('http://utlhq407:9192/api/Email');
+		$baseDomain = '';
+
+		$this->client = new UTel($baseDomain);
 	}
 
 	public function testEmailWithEmptyMessage()
 	{
         $response = $this->client->email()->send([
-        	'from' => 'notifications@utcl.co.ug',
+        	'from' => 'nomc_alerts@utcl.co.ug',
             'to' => 'obua.emmanuel@utcl.co.ug',
         ]);
 
@@ -27,7 +29,7 @@ class EmailTest extends \PHPUnit\Framework\TestCase
 	public function testEmailWithEmptyRecipient()
 	{
         $response = $this->client->email()->send([
-        	'from' => 'notifications@utcl.co.ug',
+        	'from' => 'nomc_alerts@utcl.co.ug',
             'message' => 'Testing...'
         ]);
 
@@ -38,7 +40,7 @@ class EmailTest extends \PHPUnit\Framework\TestCase
 	public function testSingleEmailSending()
 	{
 		$response = $this->client->email()->send([
-			'from' => 'notifications@utcl.co.ug',
+			'from' => 'nomc_alerts@utcl.co.ug',
 			'to' => 'obua.emmanuel@utcl.co.ug',
 			'cc' => 'obuaemmanuel10@gmail.com',
 			'subject' => 'NOMC Site Login',

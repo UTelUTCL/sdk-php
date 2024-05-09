@@ -18,8 +18,7 @@ abstract class Service
 			'data'		=> $data
 		];
 	}
-
-
+	
 	protected static function success($data) {
 		return [
 			'status' 	=> 'success',
