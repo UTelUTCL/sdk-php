@@ -5,9 +5,9 @@ use GuzzleHttp\Exception\GuzzleException;
 class Email extends Service
 {
 
-	public function __construct($baseDomain, $token)
+	public function __construct($baseDomain)
 	{
-		parent::__construct($baseDomain, $token);
+		parent::__construct($baseDomain);
 	}
 
 	public function send($options)

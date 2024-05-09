@@ -10,7 +10,7 @@ class EmailTest extends \PHPUnit\Framework\TestCase
 
 	public function setUp(): void
 	{
-		$this->client = new UTel('email', 'http://utlhq407:9192/api/Email');
+		$this->client = new UTel('http://utlhq407:9192/api/Email');
 	}
 
 	public function testEmailWithEmptyMessage()
@@ -43,7 +43,7 @@ class EmailTest extends \PHPUnit\Framework\TestCase
 			'from' => 'UTel NOMC',
 			'to' => 'obua.emmanuel@utcl.co.ug',
 			'cc' => 'obuaemmanuel10@gmail.com',
-			'subject' => 'NOMC Site Login'
+			'subject' => 'NOMC Site Login',
 			'message' => 'Testing Email...'
 		]);
 		

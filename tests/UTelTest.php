@@ -17,7 +17,7 @@ class UTelTest extends \PHPUnit\Framework\TestCase
 	
 	public function testEmailClass()
 	{
-		$client 	= new UTel('http://utlhq407:9192/api/Email', '');
+		$client 	= new UTel('http://utlhq407:9192/api/Email');
 
 		$this->assertInstanceOf(\UTel\SDK\Email::class, $client->email());
 	}

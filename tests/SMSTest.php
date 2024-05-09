@@ -10,7 +10,7 @@ class SMSTest extends \PHPUnit\Framework\TestCase
 
 	public function setUp(): void
 	{
-		$this->client = new UTel('sms', 'http://utlhq407:9191/api/sms', 'VmFzQXBwOlZhc0RldkAxMjM0');
+		$this->client = new UTel('http://utlhq407:9191/api/sms', 'VmFzQXBwOlZhc0RldkAxMjM0');
 	}
 
 	public function testSMSWithEmptyMessage()
