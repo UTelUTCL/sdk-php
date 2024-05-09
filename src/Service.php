@@ -3,11 +3,13 @@ namespace UTel\SDK;
 
 abstract class Service 
 {
-	protected $client;
+	protected $baseDomain;
+	protected $token;
 
-	public function __construct($client)
+	public function __construct($baseDomain, $token = '')
 	{
-		$this->client 	= $client;
+		$this->baseDomain 	= $baseDomain;
+		$this->token 	= $token;
 	}
 
 	protected static function error($data) {
@@ -21,7 +23,7 @@ abstract class Service
 	protected static function success($data) {
 		return [
 			'status' 	=> 'success',
-			'data'		=> json_decode($data->getBody()->getContents())
+			'data'		=> $data
 		];
 	}
 }

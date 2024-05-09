@@ -38,13 +38,13 @@ class SMSTest extends \PHPUnit\Framework\TestCase
 	public function testSingleSMSSending()
 	{
 		$response = $this->client->sms()->send([
-			'sender'    => 'Test',
+			'sender'    => 'UTel',
 			'to' 		=> '716094006', 
 			'message' 	=> 'Testing SMS...'
 		]);
 		
 		var_dump($response);
 
-		//$this->assertObjectHasProperty('SMSMessageData', $response['data']);
+		$this->assertEquals('"Message sent."', $response['data']);
 	}
 }

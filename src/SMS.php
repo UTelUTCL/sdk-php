@@ -4,9 +4,9 @@ namespace UTel\SDK;
 class SMS extends Service
 {
 
-	public function __construct($client)
+	public function __construct($baseDomain, $token)
 	{
-		parent::__construct($client);
+		parent::__construct($baseDomain, $token);
 	}
 
 	public function send($options)
@@ -19,7 +19,7 @@ class SMS extends Service
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
-		  CURLOPT_URL => 'http://utlhq407:9191/api/sms/',
+		  CURLOPT_URL => $this->baseDomain,
 		  CURLOPT_RETURNTRANSFER => true,
 		  CURLOPT_ENCODING => '',
 		  CURLOPT_MAXREDIRS => 10,
@@ -28,29 +28,19 @@ class SMS extends Service
 		  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 		  CURLOPT_CUSTOMREQUEST => 'POST',
 		  CURLOPT_POSTFIELDS =>'{
-			"sender": "UTel",
-			 "recipient": "716094006",
-			 "message": "Test"
-		}',
+			"sender": "'.$options['sender'].'",
+			 "recipient": "'.empty($options['to'].'",
+			 "message": "'.$options['message'].'"
+			}',
 		  CURLOPT_HTTPHEADER => array(
 			'Content-Type: application/json',
-			'Authorization: Basic VmFzQXBwOlZhc0RldkAxMjM0'
+			'Authorization: Basic '.$this->token
 		  ),
 		));
 
 		$response = curl_exec($curl);
 		
-		var_dump($response);
-
 		curl_close($curl);
-
-		$response = $this->client->request('POST', '/', [
-		    'json' => [
-				'sender' 	=> $options['sender'],
-				'recipient' => $options['to'],
-				'message' 	=> $options['message']
-			]
-		]);
 
 		return $this->success($response);
 	}
