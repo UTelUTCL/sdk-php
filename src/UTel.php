@@ -11,7 +11,7 @@ class UTel
 	protected $baseDomain;
 
 	/* Service can be email or sms */
-	public function __construct($service = 'email', $baseDomain, $token = '')
+	public function __construct($baseDomain, $token = '')
 	{
 		$this->baseDomain = $baseDomain;
 		$this->token = $token;

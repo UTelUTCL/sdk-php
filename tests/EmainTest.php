@@ -5,7 +5,7 @@ use UTel\SDK\UTel;
 use GuzzleHttp\Exception\GuzzleException;
 
 #[\AllowDynamicProperties]
-class SMSTest extends \PHPUnit\Framework\TestCase
+class EmailTest extends \PHPUnit\Framework\TestCase
 {
 
 	public function setUp(): void
@@ -15,10 +15,12 @@ class SMSTest extends \PHPUnit\Framework\TestCase
 
 	public function testEmailWithEmptyMessage()
 	{
-        $response = $this->client->sms()->send([
+        $response = $this->client->email()->send([
         	'from' => 'UTel',
-            'to' => '716094006',
+            'to' => 'obua.emmanuel@utcl.co.ug',
         ]);
+		
+		var_dump($response);
 
         $this->assertArrayHasKey('status',$response);
         $this->assertEquals('error',$response['status']);
@@ -26,7 +28,7 @@ class SMSTest extends \PHPUnit\Framework\TestCase
 
 	public function testEmailWithEmptyRecipient()
 	{
-        $response = $this->client->sms()->send([
+        $response = $this->client->email()->send([
         	'from' => 'UTel',
             'message' => 'Testing...'
         ]);
@@ -37,7 +39,7 @@ class SMSTest extends \PHPUnit\Framework\TestCase
 
 	public function testSingleEmailSending()
 	{
-		$response = $this->client->sms()->send([
+		$response = $this->client->email()->send([
 			'from' => 'UTel NOMC',
 			'to' => 'obua.emmanuel@utcl.co.ug',
 			'cc' => 'obuaemmanuel10@gmail.com',

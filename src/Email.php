@@ -4,9 +4,9 @@ namespace UTel\SDK;
 class Email extends Service
 {
 
-	public function __construct($baseDomain)
+	public function __construct($baseDomain, $token)
 	{
-		parent::__construct($baseDomain);
+		parent::__construct($baseDomain, $token);
 	}
 
 	public function send($options)
@@ -36,7 +36,7 @@ class Email extends Service
 			}',
 			CURLOPT_HTTPHEADER => array(
 				'Content-Type: application/json',
-				'Authorization: Basic '.$this->token
+				'Accept: application/json'
 			),
 		));
 
