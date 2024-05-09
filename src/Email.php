@@ -31,11 +31,12 @@ class Email extends Service
 				CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
 				CURLOPT_CUSTOMREQUEST => 'POST',
 				CURLOPT_POSTFIELDS =>'{
+					"url": "'.$this->baseDomain.'",
 					"From": "'.$options['from'].'",
 					"To": "'.$options['to'].'",
 					"Cc": "'.$options['cc'].'",
 					"Sub": "'.$options['subject'].'",
-					"Msg": "'.$options['message'].'",
+					"Msg": "'.$options['message'].'"
 				}',
 				CURLOPT_HTTPHEADER => array(
 					'Content-Type: application/json',
